@@ -17,30 +17,30 @@ import java.util.Map;
  */
 public class TestImportExcel {
 
-  @Test
-  public void importXls() throws FileNotFoundException {
-    File f=new File("src/test/resources/test.xls");
-    InputStream inputStream= new FileInputStream(f);
-    
-    ExcelLogs logs =new ExcelLogs();
-    Collection<Map> importExcel = ExcelUtil.importExcel(Map.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs , 0);
-    
-    for(Map m : importExcel){
-      System.out.println(m);
-    }
-  }
+	@Test
+	public void importXls() throws FileNotFoundException {
+		File        f           = new File("src/test/resources/test.xls");
+		InputStream inputStream = new FileInputStream(f);
 
-  @Test
-  public void importXlsx() throws FileNotFoundException {
-    File f=new File("src/test/resources/test.xlsx");
-    InputStream inputStream= new FileInputStream(f);
+		ExcelLogs       logs        = new ExcelLogs();
+		Collection<Map> importExcel = ExcelUtil.importExcel("", Map.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs, 0);
 
-    ExcelLogs logs =new ExcelLogs();
-    Collection<Map> importExcel = ExcelUtil.importExcel(Map.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs , 0);
+		for (Map m : importExcel) {
+			System.out.println(m);
+		}
+	}
 
-    for(Map m : importExcel){
-      System.out.println(m);
-    }
-  }
+	@Test
+	public void importXlsx() throws FileNotFoundException {
+		File        f           = new File("src/test/resources/test.xlsx");
+		InputStream inputStream = new FileInputStream(f);
+
+		ExcelLogs       logs        = new ExcelLogs();
+		Collection<Map> importExcel = ExcelUtil.importExcel("", Map.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs, 0);
+
+		for (Map m : importExcel) {
+			System.out.println(m);
+		}
+	}
 
 }
